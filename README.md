@@ -1,29 +1,91 @@
 # Tavily Quota Monitor
 
-A lightweight Streamlit dashboard for monitoring multiple Tavily accounts/keys and visualizing quota usage.
+A lightweight Streamlit dashboard for tracking multiple Tavily accounts or keys and visualizing quota usage.
 
-## Features
+## Table of Contents
+
+- [English](#english)
+- [中文](#中文)
+
+## English
+
+### Overview
+
+This project provides a simple dashboard for:
+
+- monitoring usage across multiple accounts
+- comparing daily and monthly quota consumption
+- spotting accounts that are close to their limits
+- reviewing usage history with charts
+
+### Features
 
 - Multi-account quota overview
 - Daily and monthly usage cards
 - Remaining quota indicators
 - Trend charts for requests and cost
-- Simple JSON/CSV-based data source for easy integration
+- JSON and CSV data sources for easy integration
 
-## Quick Start
+### Project Structure
+
+```text
+.
+├── app.py
+├── data/
+│   ├── accounts.json
+│   └── usage_history.csv
+├── requirements.txt
+└── README.md
+```
+
+### Quick Start
+
+#### 1. Create a virtual environment
 
 ```bash
 python -m venv .venv
+```
+
+#### 2. Activate it
+
+```bash
 .venv\\Scripts\\activate
+```
+
+#### 3. Install dependencies
+
+```bash
 pip install -r requirements.txt
+```
+
+#### 4. Run the app
+
+```bash
 streamlit run app.py
 ```
 
-## Data Format
+### Data Format
 
-### `data/accounts.json`
+#### `data/accounts.json`
 
-Each account needs:
+Example:
+
+```json
+[
+  {
+    "account_id": "acct-001",
+    "name": "Main Account",
+    "tier": "pro",
+    "daily_limit": 1000,
+    "monthly_limit": 30000,
+    "used_today": 120,
+    "used_month": 3800,
+    "last_updated": "2026-03-25 09:00:00"
+  }
+]
+```
+
+Required fields:
 
 - `account_id`
 - `name`
@@ -34,7 +96,14 @@ Each account needs:
 - `used_month`
 - `last_updated`
 
-### `data/usage_history.csv`
+#### `data/usage_history.csv`
+
+Example:
+
+```csv
+timestamp,account_id,account_name,requests,cost
+2026-03-25 08:00:00,acct-001,Main Account,25,0.42
+```
 
 Columns:
 
@@ -44,6 +113,140 @@ Columns:
 - `requests`
 - `cost`
 
-## Next Steps
+### Deployment Notes
 
-If you want real automatic monitoring, the next upgrade is to add a collector that syncs quotas from your Tavily billing or usage source on a schedule.
+- Local development works with `streamlit run app.py`.
+- For GitHub-based workflows, you can add a scheduled sync job later to refresh `data/accounts.json` and `data/usage_history.csv`.
+- The app is designed to be simple to extend if you later connect it to Tavily billing, logs, or a custom collector.
+
+### Next Steps
+
+Possible upgrades:
+
+- add screenshots to this README
+- connect a real data collector
+- add auth or access control for shared deployment
+- add automated checks for malformed JSON or CSV files
+
+---
+
+## 中文
+
+### 概览
+
+这个项目提供一个简单的仪表盘，用于：
+
+- 监控多个账号的使用情况
+- 对比每日和每月额度消耗
+- 发现接近上限的账号
+- 通过图表查看历史使用趋势
+
+### 功能
+
+- 多账号额度总览
+- 每日和每月使用卡片
+- 剩余额度提示
+- 请求数和成本趋势图
+- 基于 JSON 和 CSV 的数据源，方便接入
+
+### 项目结构
+
+```text
+.
+├── app.py
+├── data/
+│   ├── accounts.json
+│   └── usage_history.csv
+├── requirements.txt
+└── README.md
+```
+
+### 快速开始
+
+#### 1. 创建虚拟环境
+
+```bash
+python -m venv .venv
+```
+
+#### 2. 激活虚拟环境
+
+```bash
+.venv\\Scripts\\activate
+```
+
+#### 3. 安装依赖
+
+```bash
+pip install -r requirements.txt
+```
+
+#### 4. 启动应用
+
+```bash
+streamlit run app.py
+```
+
+### 数据格式
+
+#### `data/accounts.json`
+
+示例：
+
+```json
+[
+  {
+    "account_id": "acct-001",
+    "name": "Main Account",
+    "tier": "pro",
+    "daily_limit": 1000,
+    "monthly_limit": 30000,
+    "used_today": 120,
+    "used_month": 3800,
+    "last_updated": "2026-03-25 09:00:00"
+  }
+]
+```
+
+必需字段：
+
+- `account_id`
+- `name`
+- `tier`
+- `daily_limit`
+- `monthly_limit`
+- `used_today`
+- `used_month`
+- `last_updated`
+
+#### `data/usage_history.csv`
+
+示例：
+
+```csv
+timestamp,account_id,account_name,requests,cost
+2026-03-25 08:00:00,acct-001,Main Account,25,0.42
+```
+
+字段包括：
+
+- `timestamp`
+- `account_id`
+- `account_name`
+- `requests`
+- `cost`
+
+### 部署说明
+
+- 本地开发可以直接使用 `streamlit run app.py`。
+- 如果你后续要基于 GitHub 做自动同步，可以增加定时任务来刷新 `data/accounts.json` 和 `data/usage_history.csv`。
+- 这个项目保持了较轻的结构，后续接入 Tavily 账单、日志或自定义采集器时会比较容易扩展。
+
+### 下一步
+
+可以继续增加这些内容：
+
+- 给 README 补截图
+- 接入真实数据采集器
+- 给共享部署加上访问控制
+- 增加 JSON / CSV 格式校验
