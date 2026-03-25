@@ -24,6 +24,7 @@ This project provides a simple dashboard for:
 - Daily and monthly usage cards
 - Remaining quota indicators
 - Trend charts for requests and cost
+- English/Chinese interface switcher
 - JSON and CSV data sources for easy integration
 
 ### Project Structure
@@ -119,6 +120,10 @@ Columns:
 - For GitHub-based workflows, you can add a scheduled sync job later to refresh `data/accounts.json` and `data/usage_history.csv`.
 - The app is designed to be simple to extend if you later connect it to Tavily billing, logs, or a custom collector.
 
+### Screenshots
+
+Add application screenshots here once you have a browser capture from the running app.
+
 ### Next Steps
 
 Possible upgrades:
@@ -147,6 +152,7 @@ Possible upgrades:
 - 每日和每月使用卡片
 - 剩余额度提示
 - 请求数和成本趋势图
+- 中英文界面切换
 - 基于 JSON 和 CSV 的数据源，方便接入
 
 ### 项目结构
@@ -241,6 +247,10 @@ timestamp,account_id,account_name,requests,cost
 - 本地开发可以直接使用 `streamlit run app.py`。
 - 如果你后续要基于 GitHub 做自动同步，可以增加定时任务来刷新 `data/accounts.json` 和 `data/usage_history.csv`。
 - 这个项目保持了较轻的结构，后续接入 Tavily 账单、日志或自定义采集器时会比较容易扩展。
+
+### 截图
+
+等你从运行中的应用截到浏览器截图后，可以把截图补到这里。
 
 ### 下一步
 
