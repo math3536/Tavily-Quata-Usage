@@ -120,20 +120,6 @@ Columns:
 - For GitHub-based workflows, you can add a scheduled sync job later to refresh `data/accounts.json` and `data/usage_history.csv`.
 - The app is designed to be simple to extend if you later connect it to Tavily billing, logs, or a custom collector.
 
-### Screenshots
-
-Add application screenshots here once you have a browser capture from the running app.
-
-### Next Steps
-
-Possible upgrades:
-
-- add screenshots to this README
-- connect a real data collector
-- add auth or access control for shared deployment
-- add automated checks for malformed JSON or CSV files
-
----
 
 ## 中文
 
@@ -248,15 +234,4 @@ timestamp,account_id,account_name,requests,cost
 - 如果你后续要基于 GitHub 做自动同步，可以增加定时任务来刷新 `data/accounts.json` 和 `data/usage_history.csv`。
 - 这个项目保持了较轻的结构，后续接入 Tavily 账单、日志或自定义采集器时会比较容易扩展。
 
-### 截图
-
-等你从运行中的应用截到浏览器截图后，可以把截图补到这里。
-
-### 下一步
-
-可以继续增加这些内容：
-
-- 给 README 补截图
-- 接入真实数据采集器
-- 给共享部署加上访问控制
 - 增加 JSON / CSV 格式校验
