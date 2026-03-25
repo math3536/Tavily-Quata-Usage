@@ -1,0 +1,32 @@
+[
+  {
+    "account_id": "tavily-prod-1",
+    "name": "Production",
+    "tier": "Pro",
+    "daily_limit": 5000,
+    "monthly_limit": 100000,
+    "used_today": 1260,
+    "used_month": 43820,
+    "last_updated": "2026-03-25 09:20:00"
+  },
+  {
+    "account_id": "tavily-dev-1",
+    "name": "Development",
+    "tier": "Free",
+    "daily_limit": 500,
+    "monthly_limit": 10000,
+    "used_today": 124,
+    "used_month": 2410,
+    "last_updated": "2026-03-25 09:18:00"
+  },
+  {
+    "account_id": "tavily-sales-1",
+    "name": "Sales",
+    "tier": "Team",
+    "daily_limit": 2000,
+    "monthly_limit": 40000,
+    "used_today": 1688,
+    "used_month": 33540,
+    "last_updated": "2026-03-25 09:15:00"
+  }
+]
